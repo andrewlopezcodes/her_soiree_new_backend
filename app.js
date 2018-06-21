@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
+const events = require('./api/events');
+
 
 const app = express();
 
@@ -19,6 +21,14 @@ app.get('/', (req, res) =>{
       message: 'hello'
   });
 });
+
+app.use('/api/v1/events', events);
+
+
+
+
+
+
 
 app.use(function(req, res, next) {
   next(createError(404));
