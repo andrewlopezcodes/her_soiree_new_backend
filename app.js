@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-const events = require('./api/events');
+const her_soiree = require('./api/her_soiree');
 
 
 const app = express();
@@ -22,7 +22,7 @@ app.get('/', (req, res) =>{
   });
 });
 
-app.use('/api/v1/events', events);
+app.use('/api/v1/her_soiree', her_soiree);
 
 
 
