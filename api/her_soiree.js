@@ -12,4 +12,22 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res, next) => {
+  if(!isNaN(req.params.id)){
+    queries
+      .getOne(req.params.id)
+      .then(her_soiree => {
+        if(her_soiree){
+          res.json(her_soiree);
+      }else{
+        next();
+      }
+    });
+  } else{
+    const error = new Error('Invalid Id');
+    next(error);
+  }
+});
+
+
 module.exports = router;
